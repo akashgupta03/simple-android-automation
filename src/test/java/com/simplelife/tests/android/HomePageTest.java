@@ -1,4 +1,5 @@
 package com.simplelife.tests.android;
+
 import com.simplelife.pages.android.Homepage;
 import com.simplelife.pages.android.OnboardingPage;
 import com.simplelife.tests.annotation.Author;
@@ -9,6 +10,7 @@ import com.simplelife.utils.DataGenrate;
 import com.simplelife.utils.Gendar;
 import com.simplelife.utils.PatientMedicalHistory;
 import org.testng.annotations.Test;
+
 public class HomePageTest extends BaseTest {
 
     @Author(name = TesterName.AKASH)
@@ -24,7 +26,7 @@ public class HomePageTest extends BaseTest {
         Homepage homePage = onboardingPage.loginToSimpleApplication("7879556515", "7879");
         homePage.patientPersonalInformation(name, phoneNumber, age, address, String.valueOf(Gendar.MALE));
         homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
-        homePage.setpatientBloodPressure("150","140");
+        homePage.setpatientBloodPressure("150", "140");
         homePage.dateOfVisitIsCurrentDate();
         homePage.savePatientDetaial();
         homePage.schaduleVisitNotNow();
@@ -44,10 +46,10 @@ public class HomePageTest extends BaseTest {
         homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
         homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
         homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
-        homePage.patientHavePastHistoryofStroke( PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
         homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
         homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
-        homePage.setpatientBloodPressure("150","140");
+        homePage.setpatientBloodPressure("150", "140");
         homePage.dateOfVisitIsCurrentDate();
         homePage.savePatientDetaial();
         homePage.schaduleVisitNotNow();
@@ -67,11 +69,11 @@ public class HomePageTest extends BaseTest {
         homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
         homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
         homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
-        homePage.patientHavePastHistoryofStroke( PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
         homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
         homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
-        homePage.setpatientBloodPressure("150","140");
-        homePage.changeDateOfVisit("12","04","16");
+        homePage.setpatientBloodPressure("150", "140");
+        homePage.changeDateOfVisit("12", "04", "16");
         homePage.savePatientDetaial();
         homePage.schaduleVisitNotNow();
     }
@@ -90,10 +92,10 @@ public class HomePageTest extends BaseTest {
         homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
         homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
         homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
-        homePage.patientHavePastHistoryofStroke( PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
         homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
         homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
-        homePage.setpatientBloodPressure("150","140");
+        homePage.setpatientBloodPressure("150", "140");
         homePage.changeDayofVisit("12");
         homePage.savePatientDetaial();
         homePage.schaduleVisitNotNow();
@@ -113,10 +115,10 @@ public class HomePageTest extends BaseTest {
         homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
         homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
         homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
-        homePage.patientHavePastHistoryofStroke( PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
         homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
         homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
-        homePage.setpatientBloodPressure("150","140");
+        homePage.setpatientBloodPressure("150", "140");
         homePage.changeMonthOfVisit("12");
         homePage.savePatientDetaial();
         homePage.schaduleVisitNotNow();
@@ -136,13 +138,83 @@ public class HomePageTest extends BaseTest {
         homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
         homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
         homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
-        homePage.patientHavePastHistoryofStroke( PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
         homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
         homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
-        homePage.setpatientBloodPressure("150","140");
+        homePage.setpatientBloodPressure("150", "140");
         homePage.changeYearOfVisit("12");
         homePage.savePatientDetaial();
         homePage.schaduleVisitNotNow();
     }
 
+    @Test
+    public void addPatientwithMedicalHistoryAndSchaduleVisitAfterOneMonth() throws InterruptedException {
+        OnboardingPage onboardingPage = new OnboardingPage(appiumDriver);
+        DataGenrate data = new DataGenrate();
+        Homepage homePage = onboardingPage.loginToSimpleApplication("7879556515", "7879");
+        String name = data.setName();
+        String phoneNumber = data.setPhoneNumber();
+        String address = data.setAddress();
+        String age = data.setAge();
+        homePage.patientPersonalInformation(name, phoneNumber, age, address, "male");
+        homePage.patientHaveAlreadyTakesHyperTensionDrugs(PatientMedicalHistory.ALREADYTAKESHYPERTENSIONDRUGS.no);
+        homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
+        homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
+        homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
+        homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
+        homePage.setpatientBloodPressure("150", "140");
+        homePage.changeYearOfVisit("12");
+        homePage.savePatientDetaial();
+        homePage.schaduleVisitDoneBtn();
     }
+
+    @Test
+    public void addPatientwithMedicalHistoryAndSchaduleVisitAfterTwoMonth() throws InterruptedException {
+        OnboardingPage onboardingPage = new OnboardingPage(appiumDriver);
+        DataGenrate data = new DataGenrate();
+        Homepage homePage = onboardingPage.loginToSimpleApplication("7879556515", "7879");
+        String name = data.setName();
+        String phoneNumber = data.setPhoneNumber();
+        String address = data.setAddress();
+        String age = data.setAge();
+        homePage.patientPersonalInformation(name, phoneNumber, age, address, "male");
+        homePage.patientHaveAlreadyTakesHyperTensionDrugs(PatientMedicalHistory.ALREADYTAKESHYPERTENSIONDRUGS.no);
+        homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
+        homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
+        homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
+        homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
+        homePage.setpatientBloodPressure("150", "140");
+        homePage.changeYearOfVisit("12");
+        homePage.savePatientDetaial();
+        homePage.scheduleappointmentAfterTwoMonth();
+    }
+
+    @Test
+    public void addPatientwithMedicalHistoryAndSchaduleVisitAfter20Days() throws InterruptedException {
+        OnboardingPage onboardingPage = new OnboardingPage(appiumDriver);
+        DataGenrate data = new DataGenrate();
+        Homepage homePage = onboardingPage.loginToSimpleApplication("7879556515", "7879");
+        String name = data.setName();
+        String phoneNumber = data.setPhoneNumber();
+        String address = data.setAddress();
+        String age = data.setAge();
+        homePage.patientPersonalInformation(name, phoneNumber, age, address, "male");
+        homePage.patientHaveAlreadyTakesHyperTensionDrugs(PatientMedicalHistory.ALREADYTAKESHYPERTENSIONDRUGS.no);
+        homePage.patientHavediagnosedwithhypertension(PatientMedicalHistory.DIAGNOSEDWITHHYPERTENSION.yes);
+        homePage.patientHaveHasdiabetes(PatientMedicalHistory.HASDIABETES.no);
+        homePage.patientHaveHeartAttackinLast3Years(PatientMedicalHistory.HEARTATTACKINLAST3YEARS.yes);
+        homePage.patientHavePastHistoryofStroke(PatientMedicalHistory.PASTHISTORYOFSTROKE.no);
+        homePage.patientHavePastHistoryofkidneydisease(PatientMedicalHistory.PASTHISTORYOFKIDNEYDISEASE.yes);
+        homePage.clickOnNextButtonOnpatientMedicalHistoryInfoPage();
+        homePage.setpatientBloodPressure("150", "140");
+        homePage.changeYearOfVisit("12");
+        homePage.savePatientDetaial();
+        homePage.scheduleAppointmentAtDecrementDate();
+    }
+
+
+}

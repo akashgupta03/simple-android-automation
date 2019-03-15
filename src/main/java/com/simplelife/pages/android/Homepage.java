@@ -12,7 +12,7 @@ public class Homepage extends BasePage {
 
     @CacheLookup
     @FindBy(className = "android.widget.RadioButton")
-    List<WebElement> patientGendar;
+    List<WebElement> patientGender;
     @CacheLookup
     @FindBy(id = "patients_search_patients")
     private WebElement patientsSearch;
@@ -83,10 +83,20 @@ public class Homepage extends BasePage {
 
     @CacheLookup
     @FindBy(id = "scheduleappointment_done")
-    private WebElement sceduleappointmentDoneBtn;
+    private WebElement scheduleAppointmentDoneBtn;
     @CacheLookup
     @FindBy(id = "scheduleappointment_not_now")
-    private WebElement sceduleappointmentNotNowBtn;
+    private WebElement scheduleAppointmentNotNowBtn;
+
+    @CacheLookup
+    @FindBy(id = "scheduleappointment_increment_date")
+    private WebElement scheduleappointmentIncrementDate;
+
+    @CacheLookup
+    @FindBy(id = "scheduleappointment_decrement_date")
+    private WebElement scheduleappointmentDecrementDate;
+
+
 
 
     public Homepage(AppiumDriver appiumDriver) {
@@ -109,7 +119,7 @@ public class Homepage extends BasePage {
         clickOnElement(nextBtn);
     }
 
-    public void patientPersonalInformation(String patientName, String phone, String age, String address, String gendar) {
+    public void patientPersonalInformation(String patientName, String phone, String age, String address, String gender) {
 
         clickOnsearchPatientBtn();
         addNewPatient(patientName);
@@ -117,8 +127,8 @@ public class Homepage extends BasePage {
         clickOnElement(addNewPatient);
         sendKeys(patientPhoneNumber, phone);
         sendKeys(patientAge, age);
-        for (WebElement genderElement : patientGendar) {
-            if (genderElement.getText().trim().equalsIgnoreCase(gendar.toLowerCase())) {
+        for (WebElement genderElement : patientGender) {
+            if (genderElement.getText().trim().equalsIgnoreCase(gender.toLowerCase())) {
                 genderElement.click();
             }
         }
@@ -136,10 +146,8 @@ public class Homepage extends BasePage {
     }
 
 
-
-    public void patientHavediagnosedwithhypertension(boolean diagnosedwithhypertension )
-    {
-        if (diagnosedwithhypertension &&patientMedicalHistory.get(0).getText().replaceAll(" ", "").equalsIgnoreCase("diagnosedwithhypertension")) {
+    public void patientHavediagnosedwithhypertension(boolean diagnosedwithhypertension) {
+        if (diagnosedwithhypertension && patientMedicalHistory.get(0).getText().replaceAll(" ", "").equalsIgnoreCase("diagnosedwithhypertension")) {
             clickOnElement(patientHaveDiseases.get(0));
 
         } else {
@@ -149,9 +157,8 @@ public class Homepage extends BasePage {
     }
 
 
-    public void patientHaveAlreadyTakesHyperTensionDrugs(boolean alreadytakeshypertensiondrugs )
-    {
-        if ( alreadytakeshypertensiondrugs &&patientMedicalHistory.get(1).getText().replaceAll(" ", "").equalsIgnoreCase("alreadytakeshypertensiondrugs")) {
+    public void patientHaveAlreadyTakesHyperTensionDrugs(boolean alreadytakeshypertensiondrugs) {
+        if (alreadytakeshypertensiondrugs && patientMedicalHistory.get(1).getText().replaceAll(" ", "").equalsIgnoreCase("alreadytakeshypertensiondrugs")) {
             clickOnElement(patientHaveDiseases.get(1));
 
         } else {
@@ -159,9 +166,9 @@ public class Homepage extends BasePage {
 
         }
     }
-    public void patientHaveHeartAttackinLast3Years(boolean heartattackinlast3years )
-    {
-        if ( heartattackinlast3years &&patientMedicalHistory.get(2).getText().replaceAll(" ", "").equalsIgnoreCase("heartattackinlast3years")) {
+
+    public void patientHaveHeartAttackinLast3Years(boolean heartattackinlast3years) {
+        if (heartattackinlast3years && patientMedicalHistory.get(2).getText().replaceAll(" ", "").equalsIgnoreCase("heartattackinlast3years")) {
             clickOnElement(patientHaveDiseases.get(2));
 
         } else {
@@ -170,9 +177,8 @@ public class Homepage extends BasePage {
         }
     }
 
-    public void patientHavePastHistoryofStroke(boolean pasthistoryofstroke )
-    {
-        if ( pasthistoryofstroke &&patientMedicalHistory.get(3).getText().replaceAll(" ", "").equalsIgnoreCase("pasthistoryofstroke")) {
+    public void patientHavePastHistoryofStroke(boolean pasthistoryofstroke) {
+        if (pasthistoryofstroke && patientMedicalHistory.get(3).getText().replaceAll(" ", "").equalsIgnoreCase("pasthistoryofstroke")) {
             clickOnElement(patientHaveDiseases.get(3));
 
         } else {
@@ -180,9 +186,9 @@ public class Homepage extends BasePage {
 
         }
     }
-    public void patientHavePastHistoryofkidneydisease(boolean pasthistoryofkidneydisease )
-    {
-        if ( pasthistoryofkidneydisease &&patientMedicalHistory.get(4).getText().replaceAll(" ", "").equalsIgnoreCase("pasthistoryofkidneydisease")) {
+
+    public void patientHavePastHistoryofkidneydisease(boolean pasthistoryofkidneydisease) {
+        if (pasthistoryofkidneydisease && patientMedicalHistory.get(4).getText().replaceAll(" ", "").equalsIgnoreCase("pasthistoryofkidneydisease")) {
             clickOnElement(patientHaveDiseases.get(4));
 
         } else {
@@ -190,9 +196,9 @@ public class Homepage extends BasePage {
 
         }
     }
-    public void patientHaveHasdiabetes(boolean hasdiabetes )
-    {
-        if ( hasdiabetes &&patientMedicalHistory.get(5).getText().replaceAll(" ", "").equalsIgnoreCase("hasdiabetes")) {
+
+    public void patientHaveHasdiabetes(boolean hasdiabetes) {
+        if (hasdiabetes && patientMedicalHistory.get(5).getText().replaceAll(" ", "").equalsIgnoreCase("hasdiabetes")) {
             clickOnElement(patientHaveDiseases.get(5));
 
         } else {
@@ -200,8 +206,6 @@ public class Homepage extends BasePage {
 
         }
     }
-
-
 
 
     public void setpatientBloodPressure(String systolic, String Diastolic) {
@@ -262,19 +266,30 @@ public class Homepage extends BasePage {
         Thread.sleep(2000);
     }
 
-    public void schaduleVisitNow() {
+    public void schaduleVisitDoneBtn() {
         boolean isDisplay = waitForElement(schaduleVisitTab);
         if (isDisplay) {
-            clickOnElement(sceduleappointmentDoneBtn);
+            clickOnElement(scheduleAppointmentDoneBtn);
         }
     }
 
     public void schaduleVisitNotNow() {
         boolean isDisplay = waitForElement(schaduleVisitTab);
         if (isDisplay) {
-            clickOnElement(sceduleappointmentNotNowBtn);
+            clickOnElement(scheduleAppointmentNotNowBtn);
         }
     }
 
+    public void scheduleAppointmentAtDecrementDate()
+    {
+        clickOnElement(scheduleappointmentDecrementDate);
+        schaduleVisitDoneBtn();
+    }
+
+    public void scheduleappointmentAfterTwoMonth()
+    {
+        clickOnElement(scheduleappointmentIncrementDate);
+        schaduleVisitDoneBtn();
+    }
 
 }

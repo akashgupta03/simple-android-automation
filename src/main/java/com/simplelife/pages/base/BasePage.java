@@ -97,9 +97,8 @@ public class BasePage {
         }
     }
 
-    public void clickOnDoneButtonOnKeypad()
-    {
-        appiumDriver.executeScript("mobile:performEditorAction", ImmutableMap.of("action","done"));
+    public void clickOnDoneButtonOnKeypad() {
+        appiumDriver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "done"));
 
     }
 

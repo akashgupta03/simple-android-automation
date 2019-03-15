@@ -23,3 +23,12 @@ dependencies {
     compile 'com.google.googlejavaformat:google-java-format:1.6'
 
 }
+test {
+    systemProperties System.getProperties()
+    testLogging {
+        showStandardStreams = true
+    }
+    useTestNG {
+       
+    }
+}
