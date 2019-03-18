@@ -1,6 +1,7 @@
 package com.simplelife.tests.base;
 
 import com.simplelife.tests.builder.AndroidDriverBuilder;
+import com.simplelife.utils.AdbCommand;
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -27,6 +28,8 @@ public class BaseTest {
 
     @BeforeMethod(description = "Build the Appium driver")
     public void buildDriver() throws IOException, InterruptedException {
+//        AdbCommand adbCommand=new AdbCommand();
+//        adbCommand.turnOffWifi();
         appiumDriver = AndroidDriverBuilder.buildDriver();
 
     }

@@ -10,7 +10,7 @@ public class OnboardingPage extends BasePage {
 
     @CacheLookup
     @FindBy(id = "onboarding_get_started")
-    private WebElement onboarding_started;
+    private WebElement onboardingStarted;
     @CacheLookup
     @FindBy(id = "registrationphone_phone")
     private WebElement registrationPhone;
@@ -40,7 +40,7 @@ public class OnboardingPage extends BasePage {
 
     public void getStarted() {
 
-        clickOnElement(onboarding_started);
+        clickOnElement(onboardingStarted);
     }
 
     public void setRegistrationPhone(String phoneNumber) {

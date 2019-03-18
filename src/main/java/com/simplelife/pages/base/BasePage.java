@@ -2,7 +2,9 @@ package com.simplelife.pages.base;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,7 +47,7 @@ public class BasePage {
     }
 
 
-    boolean isExists(WebElement element) {
+    public boolean isExists(WebElement element) {
         try {
             waitForElement(element);
             return element.isDisplayed();
@@ -102,4 +104,48 @@ public class BasePage {
 
     }
 
+
+    public void scrollDown() {
+        int pressX = appiumDriver.manage().window().getSize().width / 2;
+        int bottomY = appiumDriver.manage().window().getSize().height * 4 / 5;
+        int topY = appiumDriver.manage().window().getSize().height / 8;
+        scroll(pressX, bottomY, pressX, topY);
+    }
+
+    private void scroll(int fromX, int fromY, int toX, int toY) {
+        TouchAction touchAction = new TouchAction(appiumDriver);
+        PointOption p = new PointOption();
+        touchAction.longPress(p.withCoordinates(fromX, fromY)).moveTo(p.withCoordinates(toX, toY)).release().perform();
+    }
+
+    public void scrollDownTo(String text) {
+
+        scrollDownTo(By.xpath("//*[@text=\"" + text + "\"]"));
+    }
+
+    public void scrollDownTo(By byOfElementToBeFound) {
+        hideKeyboard();
+        int i = 0;
+        while (i < 12) {
+            if (appiumDriver.findElements(byOfElementToBeFound).size() > 0)
+                return;
+
+            scrollDown1();
+
+            i++;
+        }
+        Assert.fail("Did not find : " + byOfElementToBeFound.toString());
+    }
+
+    public void scrollDown1() {
+        int height = appiumDriver.manage().window().getSize().getHeight();
+        scroll(5, height * 2 / 3, 5, height / 3);
+    }
+
+    public void scrollUp() {
+
+        int height = appiumDriver.manage().window().getSize().getHeight();
+
+        scroll(5, height / 3, 5, height * 2 / 3);
+    }
 }

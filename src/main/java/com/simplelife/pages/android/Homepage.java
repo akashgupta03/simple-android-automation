@@ -2,6 +2,7 @@ package com.simplelife.pages.android;
 
 import com.simplelife.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +13,7 @@ public class Homepage extends BasePage {
 
     @CacheLookup
     @FindBy(className = "android.widget.RadioButton")
-    List<WebElement> patientGender;
+    List<WebElement> patientGendar;
     @CacheLookup
     @FindBy(id = "patients_search_patients")
     private WebElement patientsSearch;
@@ -83,21 +84,33 @@ public class Homepage extends BasePage {
 
     @CacheLookup
     @FindBy(id = "scheduleappointment_done")
-    private WebElement scheduleAppointmentDoneBtn;
+    private WebElement sceduleappointmentDoneBtn;
     @CacheLookup
     @FindBy(id = "scheduleappointment_not_now")
-    private WebElement scheduleAppointmentNotNowBtn;
+    private WebElement sceduleappointmentNotNowBtn;
 
     @CacheLookup
-    @FindBy(id = "scheduleappointment_increment_date")
-    private WebElement scheduleappointmentIncrementDate;
+    @FindBy(id = "patientsummary_item_bp_days_ago")
+    private WebElement changePatientBloodPressure;
 
     @CacheLookup
-    @FindBy(id = "scheduleappointment_decrement_date")
-    private WebElement scheduleappointmentDecrementDate;
+    @FindBy(id = "bloodpressureentry_remove")
+    private WebElement removePatientBloodPressure;
+    @CacheLookup
+    @FindBy(id = "android:id/button1")
+    private WebElement removepatientBloodPressureConfirmPopUp;
 
+    @FindBy(id = "recentpatient_item_last_bp")
+    private WebElement recentPatientLastBp;
 
+    @FindBy(id = "recentpatient_item_title")
+    private List<WebElement> patientListOnHomePage;
 
+    @FindBy(id = "patientsummary_item_bp_placeholde")
+    private WebElement patientBloodPressuresummary;
+
+    @FindBy(id = "patientsummary_item_newbp")
+    private WebElement patientAddNewBloodPressureButton;
 
     public Homepage(AppiumDriver appiumDriver) {
         super(appiumDriver);
@@ -119,7 +132,7 @@ public class Homepage extends BasePage {
         clickOnElement(nextBtn);
     }
 
-    public void patientPersonalInformation(String patientName, String phone, String age, String address, String gender) {
+    public void patientPersonalInformation(String patientName, String phone, String age, String address, String gendar) {
 
         clickOnsearchPatientBtn();
         addNewPatient(patientName);
@@ -127,8 +140,8 @@ public class Homepage extends BasePage {
         clickOnElement(addNewPatient);
         sendKeys(patientPhoneNumber, phone);
         sendKeys(patientAge, age);
-        for (WebElement genderElement : patientGender) {
-            if (genderElement.getText().trim().equalsIgnoreCase(gender.toLowerCase())) {
+        for (WebElement genderElement : patientGendar) {
+            if (genderElement.getText().trim().equalsIgnoreCase(gendar.toLowerCase())) {
                 genderElement.click();
             }
         }
@@ -266,30 +279,61 @@ public class Homepage extends BasePage {
         Thread.sleep(2000);
     }
 
-    public void schaduleVisitDoneBtn() {
+    public void schaduleVisitNow() {
         boolean isDisplay = waitForElement(schaduleVisitTab);
         if (isDisplay) {
-            clickOnElement(scheduleAppointmentDoneBtn);
+            clickOnElement(sceduleappointmentDoneBtn);
         }
     }
 
     public void schaduleVisitNotNow() {
         boolean isDisplay = waitForElement(schaduleVisitTab);
         if (isDisplay) {
-            clickOnElement(scheduleAppointmentNotNowBtn);
+            clickOnElement(sceduleappointmentNotNowBtn);
+        } else {
+            System.out.println("User Unable to click on schadule Visit Not Now Button");
         }
     }
 
-    public void scheduleAppointmentAtDecrementDate()
-    {
-        clickOnElement(scheduleappointmentDecrementDate);
-        schaduleVisitDoneBtn();
+    public void deletePatientBloodPresser() {
+        clickOnElement(changePatientBloodPressure);
+        clickOnElement(removePatientBloodPressure);
+        clickOnElement(removepatientBloodPressureConfirmPopUp);
+
     }
 
-    public void scheduleappointmentAfterTwoMonth()
-    {
-        clickOnElement(scheduleappointmentIncrementDate);
-        schaduleVisitDoneBtn();
+    public boolean updateThePatientBloodPressure(String systolic, String Diastolic) {
+        boolean is = isExists(recentPatientLastBp);
+        if (is) {
+            clickOnElement(changePatientBloodPressure);
+            setpatientBloodPressure(systolic, Diastolic);
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    public boolean isrecentPatientLastBpDisplay() {
+        return waitForElement(recentPatientLastBp);
+    }
+
+    public void clickOnPatientOnHomePage() {
+        clickOnElement(patientListOnHomePage.get(0));
+    }
+
+
+    public void addNewBloodPressureOfPatient(String systolic, String Diastolic) throws InterruptedException {
+        clickOnPatientOnHomePage();
+        if (isExists(patientAddNewBloodPressureButton)) {
+            patientAddNewBloodPressureButton.click();
+        } else {
+            scrollDownTo(By.id("patientsummary_item_newbp"));
+            patientAddNewBloodPressureButton.click();
+        }
+        setpatientBloodPressure(systolic, Diastolic);
+        dateOfVisitIsCurrentDate();
+        savePatientDetaial();
+
+
+    }
 }

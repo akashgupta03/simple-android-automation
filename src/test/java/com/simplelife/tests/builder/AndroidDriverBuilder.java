@@ -17,6 +17,7 @@ public class AndroidDriverBuilder {
         capabilities.setCapability("automationName", "UiAutomator");
         capabilities.setCapability("appPackage", "org.simple.clinic.sandbox");
         capabilities.setCapability("appActivity", "org.simple.clinic.activity.TheActivity");
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
         capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
         capabilities.setCapability("autoAcceptAlerts", true);
         driver = new AppiumDriver(AppiumServerUtils.server.getUrl(), capabilities);
@@ -24,6 +25,6 @@ public class AndroidDriverBuilder {
 
         return driver;
 
-        //capabilities.setCapability(MobileCapabilityType.FULL_RESET, "true");
+  //
     }
 }

@@ -10,9 +10,7 @@ import java.lang.annotation.Target;
 public @interface TestCaseNotes {
 
     String Title() default "";
-
     String Steps();
-
     String category() default "";
 
     String expecatedResult() default "";

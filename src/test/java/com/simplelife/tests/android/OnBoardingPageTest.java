@@ -21,6 +21,7 @@ public class OnBoardingPageTest extends BaseTest {
         String name = dataGenrate.setName();
         String pin = "7879";
         onboardingPage.signUpToSimpleApplication(phoneNumber, name, pin);
+
     }
 
 }
